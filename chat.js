@@ -1,4 +1,4 @@
-/* Sentia · Widget de chat con IA — vanilla IIFE, sin frameworks.
+/* Kinea · Widget de chat con IA — vanilla IIFE, sin frameworks.
    Llama SIEMPRE a tu backend (Worker o PHP), nunca a Gemini directamente. */
 (function () {
   "use strict";
@@ -14,7 +14,7 @@ var CHAT_BACKEND = "https://fisio-chat.hector22melgar.workers.dev/";  // Al migr
     var root = document.createElement("div");
     root.className = "chat-root";
     root.innerHTML =
-      '<button type="button" class="chat-fab" aria-label="Abrir asistente con IA de Sentia" aria-expanded="false">' +
+      '<button type="button" class="chat-fab" aria-label="Abrir asistente con IA de Kinea" aria-expanded="false">' +
       '<span class="chat-fab-icon" aria-hidden="true">' +
       // Icono: bocadillo de chat + un destello — legible al instante como
       // "chat con IA", sin la ambigüedad del cerebro/nodo anterior.
@@ -26,7 +26,7 @@ var CHAT_BACKEND = "https://fisio-chat.hector22melgar.workers.dev/";  // Al migr
       "</span>" +
       '<span class="chat-fab-close" aria-hidden="true">×</span>' +
       "</button>" +
-      '<section class="chat-panel" hidden aria-label="Asistente con IA de Sentia">' +
+      '<section class="chat-panel" hidden aria-label="Asistente con IA de Kinea">' +
       '<header class="chat-header">' +
       // Avatar con el mismo icono, pequeño, sobre gradiente de marca
       '<span class="chat-header-avatar" aria-hidden="true">' +
@@ -35,7 +35,7 @@ var CHAT_BACKEND = "https://fisio-chat.hector22melgar.workers.dev/";  // Al migr
       '<path d="M9 9.6h7.5M9 12.6h4.8" stroke-width="1.5"/>' +
       "</svg>" +
       "</span>" +
-      "<div><strong>Asistente IA de Sentia</strong>" +
+      "<div><strong>Asistente IA de Kinea</strong>" +
       "<small>Respuestas informativas · en segundos</small></div>" +
       "</header>" +
       '<div class="chat-messages" role="log" aria-live="polite"></div>' +
@@ -133,7 +133,7 @@ var CHAT_BACKEND = "https://fisio-chat.hector22melgar.workers.dev/";  // Al migr
         if (!greeted) {
           greeted = true;
           addMessage(messages, "assistant",
-            "Hola 👋 Soy el asistente de Sentia. Puedo resolver dudas sobre la terapia, cómo trabajamos o por dónde empezar. ¿En qué te puedo ayudar?");
+            "Hola 👋 Soy el asistente de Kinea. Puedo resolver dudas sobre la terapia, cómo trabajamos o por dónde empezar. ¿En qué te puedo ayudar?");
         }
         input.focus();
       }
