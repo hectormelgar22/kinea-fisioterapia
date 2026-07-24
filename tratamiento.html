@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tratamiento · Kinea Fisioterapia</title>
+  <meta name="description" content="Detalle de nuestros tratamientos de fisioterapia: en qué consisten, cuándo se recomiendan, escala de dolor y duración." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css?v=20260724f" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+
+  <header class="subnav">
+    <div class="subnav-inner">
+      <a class="brand" href="index.html" aria-label="Kinea inicio">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="26" height="26" fill="none">
+            <path d="M16 3c4 5 8 8 8 14a8 8 0 1 1-16 0c0-6 4-9 8-14Z" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M16 12v10M11 17h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="brand-name">Kinea</span>
+      </a>
+      <a href="index.html#tratamientos" class="subnav-back">← Todos los tratamientos</a>
+      <a href="index.html#contacto" class="btn btn-nav" data-magnetic><span>Pedir cita</span></a>
+    </div>
+  </header>
+
+  <main id="main" class="subpage">
+    <section class="subhero">
+      <p class="eyebrow" data-reveal><span class="eyebrow-dot"></span> Tratamiento</p>
+      <h1 id="t-name" data-reveal>Tratamiento</h1>
+      <p class="lead" id="t-lema" data-reveal></p>
+    </section>
+
+    <div class="tfacts" data-reveal>
+      <div class="tfact">
+        <span class="tfact-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="tfact-label">Duración</span>
+        <span class="tfact-value" id="t-duracion">—</span>
+      </div>
+      <div class="tfact">
+        <span class="tfact-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-4.35-9.33-9.09C1.3 9 2.6 5.5 6 5.5c2 0 3.2 1.3 4 2.5.8-1.2 2-2.5 4-2.5 3.4 0 4.7 3.5 3.33 6.41C19 16.65 12 21 12 21Z"/></svg>
+        </span>
+        <span class="tfact-label">Escala de dolor</span>
+        <span class="tfact-value" id="t-dolor">—</span>
+      </div>
+      <div class="tfact">
+        <span class="tfact-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+        </span>
+        <span class="tfact-label">Sesiones</span>
+        <span class="tfact-value" id="t-sesiones">—</span>
+      </div>
+    </div>
+
+    <section class="painscale" data-reveal>
+      <div class="painscale-box">
+        <h3>¿Es doloroso?</h3>
+        <p class="ps-sub">Nuestra estimación honesta en una escala del 0 (sin dolor) al 10 (muy intenso).</p>
+        <div class="ps-track">
+          <span class="ps-marker" id="t-ps-marker" data-val="0" style="left:0%"></span>
+        </div>
+        <div class="ps-scale"><span>0 · Sin dolor</span><span>5 · Molestia</span><span>10 · Intenso</span></div>
+        <p class="ps-note" id="t-ps-note"></p>
+      </div>
+    </section>
+
+    <section class="tsection" data-reveal>
+      <h2>Qué es</h2>
+      <p id="t-que"></p>
+    </section>
+
+    <section class="tsection" data-reveal>
+      <h2>Cuándo se recomienda</h2>
+      <ul class="checklist" id="t-cuando"></ul>
+    </section>
+
+    <section class="tsection" data-reveal>
+      <h2>Cómo es una sesión</h2>
+      <div class="tsteps" id="t-proceso"></div>
+    </section>
+
+    <section class="subcta" data-reveal>
+      <div class="subcta-box">
+        <h2>¿Te encaja este tratamiento?</h2>
+        <a href="index.html#contacto" class="btn btn-primary btn-lg" data-magnetic>
+          <span>Reserva tu valoración</span>
+          <span class="btn-arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-col footer-brand">
+        <span class="brand-name">Kinea</span>
+        <p data-brand="tagline">Fisioterapia & Rendimiento</p>
+        <ul class="footer-contact">
+          <li><span aria-hidden="true">✆</span> <a data-brand="phone" href="#">—</a></li>
+          <li><span aria-hidden="true">✉</span> <a data-brand="email" href="#">—</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Tratamientos</h4>
+        <nav class="footer-nav" aria-label="Tratamientos">
+          <a href="tratamiento.html?t=terapia-manual">Terapia manual</a>
+          <a href="tratamiento.html?t=puncion-seca">Punción seca &amp; EPTE</a>
+          <a href="tratamiento.html?t=ejercicio-terapeutico">Ejercicio terapéutico</a>
+          <a href="tratamiento.html?t=readaptacion-deportiva">Readaptación deportiva</a>
+          <a href="tratamiento.html?t=suelo-pelvico">Suelo pélvico</a>
+          <a href="tratamiento.html?t=fisioterapia-postural">Fisioterapia postural</a>
+        </nav>
+      </div>
+      <div class="footer-col">
+        <h4>Kinea</h4>
+        <nav class="footer-nav" aria-label="Secciones">
+          <a href="index.html#tarifas">Tarifas & bonos</a>
+          <a href="index.html#faq">Preguntas frecuentes</a>
+          <a href="index.html#contacto">Contacto / Pedir cita</a>
+        </nav>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <nav class="footer-nav" aria-label="Legal">
+          <a href="aviso-legal.html">Aviso legal</a>
+          <a href="privacidad.html">Política de privacidad</a>
+          <a href="cookies.html">Política de cookies</a>
+        </nav>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> Kinea Fisioterapia. Todos los derechos reservados.</span>
+      <span class="footer-legal"><a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a></span>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      "use strict";
+      var T = {
+        "terapia-manual": {
+          nombre: "Terapia manual",
+          lema: "Movilizaciones, manipulaciones y trabajo de tejidos para liberar articulaciones y músculos con precisión.",
+          que: "La terapia manual es el conjunto de técnicas que aplicamos con las manos para movilizar articulaciones, liberar tensión muscular y mejorar la elasticidad de los tejidos. Es una de las bases de la fisioterapia y casi siempre la combinamos con ejercicio terapéutico para que los resultados se mantengan en el tiempo.",
+          cuando: ["Dolor y rigidez articular", "Contracturas y sobrecargas musculares", "Limitación de movimiento tras una lesión", "Dolor cervical o lumbar de origen mecánico", "Tensión asociada a la mala postura"],
+          dolor: 3, dolorLabel: "Molestia leve",
+          dolorNote: "Trabajamos siempre dentro de un umbral tolerable. Puede notarse una molestia puntual en zonas cargadas que desaparece enseguida.",
+          duracion: "45–60 min", sesiones: "Desde la 1ª",
+          proceso: [["Valoración", "Exploramos el movimiento y localizamos con precisión la zona a tratar."], ["Tratamiento manual", "Aplicamos las técnicas adecuadas: movilización, manipulación o liberación miofascial."], ["Ejercicio y pautas", "Complementamos con ejercicios y consejos para casa que consolidan la mejora."]]
+        },
+        "puncion-seca": {
+          nombre: "Punción seca & EPTE",
+          lema: "Desactivación de puntos gatillo y electrólisis percutánea ecoguiada para tendinopatías y lesiones profundas rebeldes.",
+          que: "La punción seca utiliza una aguja fina para desactivar los puntos gatillo responsables del dolor muscular. La EPTE (electrólisis percutánea terapéutica) aplica una micro-corriente ecoguiada sobre el tendón dañado para estimular su regeneración. Son técnicas muy eficaces cuando el dolor no responde a otros abordajes.",
+          cuando: ["Puntos gatillo y dolor miofascial", "Tendinopatías crónicas (rotuliana, aquíleo, epicondilitis)", "Contracturas profundas persistentes", "Dolor que no cede con terapia manual", "Lesiones deportivas de repetición"],
+          dolor: 5, dolorLabel: "Moderada",
+          dolorNote: "Puede notarse un calambre breve al desactivar el punto gatillo (el llamado REL). La molestia es corta y bien tolerada; te explicamos cada paso y ajustamos a tu tolerancia.",
+          duracion: "30–45 min", sesiones: "1 / semana aprox.",
+          proceso: [["Localización ecoguiada", "Identificamos con ecografía el punto o el tendón exacto a tratar."], ["Aplicación", "Insertamos la aguja para desactivar el punto gatillo o aplicar la EPTE."], ["Recuperación activa", "Pautamos ejercicio para consolidar el resultado y evitar recaídas."]]
+        },
+        "ejercicio-terapeutico": {
+          nombre: "Ejercicio terapéutico",
+          lema: "Programas de fuerza y control motor pautados y progresivos: la clave para que el dolor no vuelva.",
+          que: "El ejercicio terapéutico es la herramienta con más evidencia científica en fisioterapia. Diseñamos un programa progresivo de fuerza, movilidad y control motor adaptado a tu lesión y a tus objetivos, para que tu cuerpo sea más resistente, capaz y autónomo.",
+          cuando: ["Prevención de recaídas", "Fortalecimiento tras una lesión", "Dolor crónico y sensibilización", "Mejora del rendimiento físico", "Mantenimiento de la salud a largo plazo"],
+          dolor: 1, dolorLabel: "Prácticamente indoloro",
+          dolorNote: "No duele. Puede aparecer una agujeta normal al iniciar un programa nuevo: es una señal de adaptación, no de lesión.",
+          duracion: "45–60 min", sesiones: "Programa continuado",
+          proceso: [["Evaluación funcional", "Medimos fuerza, movilidad y control para partir de tu punto real."], ["Programa a medida", "Diseñamos los ejercicios y la progresión semana a semana."], ["Seguimiento", "Revisamos, ajustamos cargas y te damos autonomía para seguir por tu cuenta."]]
+        },
+        "readaptacion-deportiva": {
+          nombre: "Readaptación deportiva",
+          lema: "Del reposo al gesto deportivo sin recaídas. Analizamos tu movimiento y te devolvemos a competir con seguridad.",
+          que: "La readaptación es el puente entre la lesión y la vuelta al deporte. Trabajamos el gesto específico de tu disciplina, la fuerza, la potencia y el control motor para que vuelvas al 100 % y con el menor riesgo de recaída posible.",
+          cuando: ["Vuelta al deporte tras una lesión o cirugía", "Roturas musculares y esguinces", "Prevención de recaídas en deportistas", "Mejora del gesto técnico", "Puesta a punto para competición"],
+          dolor: 2, dolorLabel: "Muy baja",
+          dolorNote: "El trabajo es progresivo y controlado; ajustamos siempre la carga a tu tolerancia y a la fase de tu recuperación.",
+          duracion: "60 min", sesiones: "Según fase",
+          proceso: [["Análisis del gesto", "Estudiamos tu deporte y la fase concreta de tu recuperación."], ["Progresión de cargas", "Fuerza, potencia y control motor específicos de tu disciplina."], ["Vuelta a competir", "Test de readaptación antes de darte el alta deportiva."]]
+        },
+        "suelo-pelvico": {
+          nombre: "Suelo pélvico",
+          lema: "Valoración y tratamiento en pre y posparto, incontinencia y dolor pélvico, con total discreción.",
+          que: "La fisioterapia de suelo pélvico valora y trata la musculatura que sostiene la vejiga, el útero y el intestino. Es fundamental durante el embarazo y el posparto, y también en casos de incontinencia o dolor pélvico, a cualquier edad.",
+          cuando: ["Preparación al parto y recuperación posparto", "Incontinencia urinaria o de esfuerzo", "Dolor pélvico o en las relaciones", "Diástasis abdominal", "Prevención en la menopausia"],
+          dolor: 2, dolorLabel: "Muy baja",
+          dolorNote: "La valoración y el tratamiento son respetuosos y siempre con tu consentimiento informado. Priorizamos tu comodidad y tu intimidad.",
+          duracion: "45–60 min", sesiones: "Según objetivos",
+          proceso: [["Entrevista y valoración", "Historia clínica y valoración funcional en un entorno privado."], ["Tratamiento", "Técnicas manuales, ejercicio específico y educación."], ["Autonomía", "Pautas para mantener tu suelo pélvico sano a largo plazo."]]
+        },
+        "fisioterapia-postural": {
+          nombre: "Fisioterapia postural",
+          lema: "Reeducación de la postura y la ergonomía para el trabajo y el día a día. Adiós a las sobrecargas.",
+          que: "Corregimos los patrones posturales que te generan dolor de espalda, cuello u hombros. Combinamos terapia manual, ejercicio y educación ergonómica para que tu cuerpo aguante mejor las horas de trabajo, estudio o pantalla.",
+          cuando: ["Dolor cervical o de espalda por el trabajo", "Malas posturas frente al ordenador", "Sobrecargas por gestos repetitivos", "Prevención en teletrabajo", "Sensación de tensión y rigidez constante"],
+          dolor: 1, dolorLabel: "Prácticamente indoloro",
+          dolorNote: "El enfoque es educativo y de ejercicio; no implica técnicas molestas.",
+          duracion: "45–60 min", sesiones: "Programa continuado",
+          proceso: [["Análisis postural", "Observamos tu postura y tu puesto de trabajo."], ["Corrección y ejercicio", "Terapia manual y ejercicios de reeducación postural."], ["Ergonomía", "Ajustamos tu entorno y tus hábitos para prevenir recaídas."]]
+        }
+      };
+
+      var params = new URLSearchParams(location.search);
+      var slug = params.get("t");
+      var d = T[slug] || T["terapia-manual"];
+
+      var set = function (id, val) { var el = document.getElementById(id); if (el) el.textContent = val; };
+      document.title = d.nombre + " · Kinea Fisioterapia";
+      set("t-name", d.nombre);
+      set("t-lema", d.lema);
+      set("t-que", d.que);
+      set("t-duracion", d.duracion);
+      set("t-sesiones", d.sesiones);
+      set("t-dolor", d.dolor + "/10");
+      set("t-ps-note", d.dolorNote);
+
+      var mk = document.getElementById("t-ps-marker");
+      if (mk) { mk.style.left = (d.dolor * 10) + "%"; mk.setAttribute("data-val", d.dolor + " · " + d.dolorLabel); }
+
+      var ul = document.getElementById("t-cuando");
+      if (ul) d.cuando.forEach(function (c) { var li = document.createElement("li"); li.textContent = c; ul.appendChild(li); });
+
+      var pr = document.getElementById("t-proceso");
+      if (pr) d.proceso.forEach(function (st) {
+        var wrap = document.createElement("div"); wrap.className = "tstep";
+        var body = document.createElement("div");
+        var h = document.createElement("h3"); h.textContent = st[0];
+        var p = document.createElement("p"); p.textContent = st[1];
+        body.appendChild(h); body.appendChild(p); wrap.appendChild(body); pr.appendChild(wrap);
+      });
+    })();
+  </script>
+  <script defer src="lib/manifest.js"></script>
+  <script defer src="main.js?v=20260724f"></script>
+</body>
+</html>

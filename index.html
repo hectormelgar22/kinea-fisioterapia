@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kinea · Fisioterapia & Rendimiento</title>
+  <meta name="description" content="Fisioterapia de precisión para todas las edades. Tratamos lesiones, dolor crónico y problemas posturales, y trabajamos la prevención y el rendimiento funcional." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css?v=20260724f" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+
+  <!-- ====================== NAV ====================== -->
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#top" aria-label="Kinea inicio">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="26" height="26" fill="none">
+            <path d="M16 3c4 5 8 8 8 14a8 8 0 1 1-16 0c0-6 4-9 8-14Z" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M16 12v10M11 17h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="brand-name">Kinea</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Navegación principal">
+        <a href="#lesiones">Síntomas</a>
+        <div class="nav-item has-drop">
+          <a href="#tratamientos" class="nav-drop-toggle" aria-haspopup="true" aria-expanded="false">
+            Tratamientos
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </a>
+          <div class="nav-drop" role="menu">
+            <a href="tratamiento.html?t=terapia-manual" role="menuitem">Terapia manual</a>
+            <a href="tratamiento.html?t=puncion-seca" role="menuitem">Punción seca &amp; EPTE</a>
+            <a href="tratamiento.html?t=ejercicio-terapeutico" role="menuitem">Ejercicio terapéutico</a>
+            <a href="tratamiento.html?t=readaptacion-deportiva" role="menuitem">Readaptación deportiva</a>
+            <a href="tratamiento.html?t=suelo-pelvico" role="menuitem">Suelo pélvico</a>
+            <a href="tratamiento.html?t=fisioterapia-postural" role="menuitem">Fisioterapia postural</a>
+          </div>
+        </div>
+        <a href="#tarifas">Tarifas</a>
+        <a href="#testimonios">Opiniones</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+
+      <a href="#contacto" class="btn btn-nav" data-magnetic>
+        <span>Pedir cita</span>
+        <span class="btn-arrow" aria-hidden="true">→</span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-progress" id="navProgress" aria-hidden="true"></div>
+  </header>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <a href="#lesiones">Síntomas</a>
+    <a href="#tratamientos">Tratamientos</a>
+    <a href="#tarifas">Tarifas</a>
+    <a href="#testimonios">Opiniones</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contacto">Contacto</a>
+    <a href="#contacto" class="btn btn-block">Pedir cita</a>
+  </div>
+
+  <main id="main">
+    <span id="top"></span>
+
+    <!-- ====================== HERO · PORTADA ====================== -->
+    <section class="hero" id="hero">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="mesh mesh-a"></div>
+        <div class="mesh mesh-b"></div>
+        <div class="mesh mesh-c"></div>
+        <div class="grain"></div>
+      </div>
+
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow" data-reveal>
+            <span class="eyebrow-dot"></span> Fisioterapia de precisión · Todas las edades
+          </p>
+
+          <h1 class="hero-title">
+            <span class="line" data-reveal-line>Tu cuerpo tiene</span>
+            <span class="line" data-reveal-line>memoria. <em>Nosotros</em></span>
+            <span class="line" data-reveal-line>lo ayudamos a</span>
+            <span class="line line-accent" data-reveal-line>volver a moverse.</span>
+          </h1>
+
+          <p class="hero-lead" data-reveal>
+            Tratamos lesiones, dolor crónico y problemas posturales con un método
+            clínico y personalizado. Y vamos más allá: prevención, mantenimiento
+            de la salud y mejora del rendimiento funcional.
+          </p>
+
+          <div class="hero-cta" data-reveal>
+            <a href="#contacto" class="btn btn-primary" data-magnetic>
+              <span>Reserva tu valoración</span>
+              <span class="btn-arrow" aria-hidden="true">→</span>
+            </a>
+            <a href="#metodo" class="btn btn-ghost">Cómo trabajamos</a>
+          </div>
+
+          <div class="hero-stats" data-reveal>
+            <div class="stat">
+              <span class="stat-num" data-count="12" data-suffix="+">0</span>
+              <span class="stat-label">Años acompañando pacientes</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num" data-count="4800" data-suffix="+">0</span>
+              <span class="stat-label">Sesiones realizadas</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num" data-count="96" data-suffix="%">0</span>
+              <span class="stat-label">Pacientes que repiten</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual" data-reveal>
+          <!--
+            Escena 3D · Figura anatómica holográfica dibujada en <canvas>.
+            Nube de puntos con musculatura marcada; la cámara arranca en la
+            cara y se aleja hasta el cuerpo completo. 0 dependencias, offline.
+          -->
+          <div class="hero-3d" id="hero3d">
+            <canvas class="robot-canvas" id="robotCanvas" role="img"
+                    aria-label="Figura humana anatómica en 3D; la cámara se aleja de la cara al cuerpo completo"></canvas>
+            <div class="hero-3d-caption" aria-hidden="true">
+              <span class="dot-live"></span> Anatomía · Movimiento · Equilibrio
+            </div>
+          </div>
+          <div class="hero-badge">
+            <span class="hero-badge-icon" aria-hidden="true">✦</span>
+            <span>Valoración inicial<br><strong>sin compromiso</strong></span>
+          </div>
+          <div class="hero-visual-glow" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <a href="#ventajas" class="scroll-cue" aria-label="Desplázate hacia abajo">
+        <span>Scroll</span>
+        <span class="scroll-line" aria-hidden="true"></span>
+      </a>
+    </section>
+
+    <!-- ====================== MARQUEE ====================== -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Lesiones deportivas</span><span class="dot">•</span>
+        <span>Dolor crónico</span><span class="dot">•</span>
+        <span>Rehabilitación</span><span class="dot">•</span>
+        <span>Postura & ergonomía</span><span class="dot">•</span>
+        <span>Suelo pélvico</span><span class="dot">•</span>
+        <span>Prevención</span><span class="dot">•</span>
+        <span>Rendimiento funcional</span><span class="dot">•</span>
+        <span>Terapia manual</span><span class="dot">•</span>
+        <span>Lesiones deportivas</span><span class="dot">•</span>
+        <span>Dolor crónico</span><span class="dot">•</span>
+        <span>Rehabilitación</span><span class="dot">•</span>
+        <span>Postura & ergonomía</span><span class="dot">•</span>
+        <span>Suelo pélvico</span><span class="dot">•</span>
+        <span>Prevención</span><span class="dot">•</span>
+        <span>Rendimiento funcional</span><span class="dot">•</span>
+        <span>Terapia manual</span><span class="dot">•</span>
+      </div>
+    </div>
+
+    <!-- ====================== VENTAJAS ====================== -->
+    <section class="section ventajas" id="ventajas">
+      <div class="section-head">
+        <p class="eyebrow" data-reveal><span class="eyebrow-dot"></span> Por qué fisioterapia</p>
+        <h2 class="section-title" data-reveal>
+          No calmamos el síntoma.<br>
+          <span class="tx-accent">Resolvemos el origen.</span>
+        </h2>
+        <p class="section-sub" data-reveal>
+          Cada cuerpo cuenta una historia distinta. Combinamos evaluación clínica,
+          terapia manual y ejercicio terapéutico para devolverte movilidad,
+          fuerza y confianza — y para que el dolor no vuelva.
+        </p>
+      </div>
+
+      <div class="bento">
+        <article class="bento-card b-lg" data-reveal data-tilt>
+          <span class="card-index">01</span>
+          <span class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path d="M12 21s-7-4.35-9.33-9.09C1.3 9 2.6 5.5 6 5.5c2 0 3.2 1.3 4 2.5.8-1.2 2-2.5 4-2.5 3.4 0 4.7 3.5 3.33 6.41C19 16.65 12 21 12 21Z"/>
+            </svg>
+          </span>
+          <h3>Alivio real del dolor</h3>
+          <p>Localizamos la causa mecánica de tu dolor y la tratamos de raíz, sin depender de parches ni de medicación indefinida.</p>
+          <div class="card-shine" aria-hidden="true"></div>
+        </article>
+
+        <article class="bento-card" data-reveal data-tilt>
+          <span class="card-index">02</span>
+          <span class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path d="M4 20V10M12 20V4M20 20v-7" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <h3>Recuperas movilidad</h3>
+          <p>Rango articular, flexibilidad y control. Vuelves a hacer lo que dejaste de hacer.</p>
+          <div class="card-shine" aria-hidden="true"></div>
+        </article>
+
+        <article class="bento-card" data-reveal data-tilt>
+          <span class="card-index">03</span>
+          <span class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path d="M12 3v3M12 18v3M3 12h3M18 12h3M6 6l2 2M16 16l2 2M18 6l-2 2M8 16l-2 2"/>
+              <circle cx="12" cy="12" r="3.4"/>
+            </svg>
+          </span>
+          <h3>Prevención inteligente</h3>
+          <p>Corregimos patrones antes de que se conviertan en lesión. Menos recaídas, más constancia.</p>
+          <div class="card-shine" aria-hidden="true"></div>
+        </article>
+
+        <article class="bento-card b-tall" data-reveal data-tilt>
+          <span class="card-index">04</span>
+          <span class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path d="M13 2 4.5 13.5H11l-1 8.5 8.5-11.5H12l1-8.5Z" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <h3>Más rendimiento</h3>
+          <p>No solo para deportistas. Optimizamos tu manera de moverte para que rindas mejor en el deporte y en el día a día, con menos fatiga.</p>
+          <ul class="card-list">
+            <li>Análisis del gesto</li>
+            <li>Fuerza y control motor</li>
+            <li>Readaptación funcional</li>
+          </ul>
+          <div class="card-shine" aria-hidden="true"></div>
+        </article>
+
+        <article class="bento-card" data-reveal data-tilt>
+          <span class="card-index">05</span>
+          <span class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path d="M12 3a4 4 0 0 1 4 4c0 2-2 3-2 5h-4c0-2-2-3-2-5a4 4 0 0 1 4-4Z"/>
+              <path d="M9 17h6M10 20h4" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <h3>Postura que sostiene</h3>
+          <p>Reeducamos tu postura y tu ergonomía para vivir sin cargar la espalda ni el cuello.</p>
+          <div class="card-shine" aria-hidden="true"></div>
+        </article>
+
+        <article class="bento-card b-wide" data-reveal data-tilt>
+          <span class="card-index">06</span>
+          <span class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6">
+              <circle cx="12" cy="12" r="9"/>
+              <path d="M8 12.5 11 15.5 16 9" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <h3>Un plan solo para ti</h3>
+          <p>Nada de protocolos genéricos. Diseñamos un tratamiento a tu medida, medimos el progreso sesión a sesión y lo ajustamos contigo.</p>
+          <div class="card-shine" aria-hidden="true"></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ====================== LESIONES / SÍNTOMAS ====================== -->
+    <section class="section lesiones" id="lesiones">
+      <div class="section-head">
+        <p class="eyebrow" data-reveal><span class="eyebrow-dot"></span> ¿Qué te pasa?</p>
+        <h2 class="section-title" data-reveal>
+          En nuestra clínica<br><span class="tx-accent">podemos ayudarte</span>
+        </h2>
+        <p class="section-sub" data-reveal>
+          Identifica tu dolor y descubre cómo lo abordamos. Si no ves el tuyo,
+          escríbenos: valoramos cada caso de forma individual.
+        </p>
+      </div>
+
+      <div class="lesiones-grid">
+        <div class="lesion" data-reveal data-tilt>
+          <span class="lesion-ico" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="24" cy="10" r="6"/>
+              <path d="M24 16v6M15 27c3-4 15-4 18 0"/>
+              <circle cx="24" cy="20" r="2.4" fill="currentColor" stroke="none"/>
+              <g class="burst" stroke="currentColor"><path d="M33 13l4-2M34 18h4M33 23l3 2"/></g>
+            </svg>
+          </span>
+          <h3>Dolor de cuello</h3>
+        </div>
+
+        <div class="lesion" data-reveal data-tilt>
+          <span class="lesion-ico" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="24" cy="8" r="4.5"/>
+              <path d="M24 12.5c-3 4-3 8 0 12s3 8-1 13M16 37h13"/>
+              <circle cx="23" cy="28" r="2.8" fill="currentColor" stroke="none"/>
+              <g class="burst" stroke="currentColor"><path d="M32 26h4M31 31l4 2M29 35l3 3"/></g>
+            </svg>
+          </span>
+          <h3>Dolor lumbar</h3>
+        </div>
+
+        <div class="lesion" data-reveal data-tilt>
+          <span class="lesion-ico" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M31 11a12 12 0 1 0 1 21"/>
+              <path d="M19 29c1 4 6 6 12 5M23 33v2.5M27 33v2.5"/>
+              <circle cx="30" cy="25" r="2.6" fill="currentColor" stroke="none"/>
+              <g class="burst" stroke="currentColor"><path d="M36 17l4-2M38 23h3"/></g>
+            </svg>
+          </span>
+          <h3>Dolor ATM</h3>
+        </div>
+
+        <div class="lesion" data-reveal data-tilt>
+          <span class="lesion-ico" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 5l3 15M23 28l-2 15"/>
+              <circle cx="22" cy="24" r="5.2"/>
+              <circle cx="22" cy="24" r="2" fill="currentColor" stroke="none"/>
+              <g class="burst" stroke="currentColor"><path d="M32 20l4-1M32 26h4M31 31l3 3"/></g>
+            </svg>
+          </span>
+          <h3>Dolor de rodilla</h3>
+        </div>
+
+        <div class="lesion" data-reveal data-tilt>
+          <span class="lesion-ico" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M13 13c8 0 13 4 13 11M26 27l3 16"/>
+              <circle cx="25" cy="22" r="5"/>
+              <circle cx="25" cy="22" r="1.9" fill="currentColor" stroke="none"/>
+              <g class="burst" stroke="currentColor"><path d="M34 18l4-2M35 24h4M34 29l3 2"/></g>
+            </svg>
+          </span>
+          <h3>Dolor de cadera</h3>
+        </div>
+
+        <div class="lesion" data-reveal data-tilt>
+          <span class="lesion-ico" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 15h11M28 21l5 17"/>
+              <circle cx="24" cy="18" r="5.5"/>
+              <circle cx="24" cy="18" r="2" fill="currentColor" stroke="none"/>
+              <g class="burst" stroke="currentColor"><path d="M33 11l3-2M36 16h3"/></g>
+            </svg>
+          </span>
+          <h3>Dolor de hombro</h3>
+        </div>
+
+        <div class="lesion" data-reveal data-tilt>
+          <span class="lesion-ico" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 7v17M19 31l-8 5h17"/>
+              <circle cx="22" cy="27" r="4.6"/>
+              <circle cx="22" cy="27" r="1.8" fill="currentColor" stroke="none"/>
+              <g class="burst" stroke="currentColor"><path d="M31 23l4-1M31 29h4"/></g>
+            </svg>
+          </span>
+          <h3>Dolor de tobillo</h3>
+        </div>
+
+        <div class="lesion" data-reveal data-tilt>
+          <span class="lesion-ico" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 33V19M21 33V14M25 33V14M29 33V17"/>
+              <path d="M13 27c-1.5-2.5-4.5-2.5-5.5-.5s.5 4.5 3 7M17 30c0 6 3 9 8 9s8-3 8-9v-8"/>
+              <g class="burst" stroke="currentColor"><path d="M24 8V4M31 10l2-3M17 10l-2-3"/></g>
+            </svg>
+          </span>
+          <h3>Dolor de mano</h3>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== TRATAMIENTOS ====================== -->
+    <section class="section tratamientos" id="tratamientos">
+      <div class="section-head">
+        <p class="eyebrow" data-reveal><span class="eyebrow-dot"></span> Qué ofrecemos</p>
+        <h2 class="section-title" data-reveal>
+          Tratamientos que<br><span class="tx-accent">devuelven el movimiento</span>
+        </h2>
+        <p class="section-sub" data-reveal>
+          Combinamos las técnicas más eficaces según la evidencia. Elegimos las
+          adecuadas para ti, no un protocolo cerrado.
+        </p>
+      </div>
+
+      <div class="trat-grid">
+        <article class="trat-card" data-reveal data-tilt>
+          <span class="trat-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8 13V5a2 2 0 0 1 4 0v6M12 11V4a2 2 0 0 1 4 0v8M16 9a2 2 0 0 1 4 0v5a7 7 0 0 1-7 7h-1a6 6 0 0 1-5-3l-3-5a2 2 0 0 1 3-2l1 1"/>
+            </svg>
+          </span>
+          <h3>Terapia manual</h3>
+          <p>Movilizaciones, manipulaciones y trabajo de tejidos para liberar articulaciones y músculos con precisión.</p>
+          <span class="trat-tag">Alivio inmediato del dolor</span>
+          <a href="tratamiento.html?t=terapia-manual" class="trat-more">Ver detalle <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="trat-card" data-reveal data-tilt>
+          <span class="trat-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 20 20 4M14 4h6v6"/><circle cx="8.5" cy="15.5" r="2.5"/>
+            </svg>
+          </span>
+          <h3>Punción seca &amp; EPTE</h3>
+          <p>Desactivación de puntos gatillo y electrólisis percutánea ecoguiada para tendinopatías rebeldes.</p>
+          <span class="trat-tag">Lesiones profundas y crónicas</span>
+          <a href="tratamiento.html?t=puncion-seca" class="trat-more">Ver detalle <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="trat-card" data-reveal data-tilt>
+          <span class="trat-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 12h3l2-5 3 10 2-7 2 4h4"/>
+            </svg>
+          </span>
+          <h3>Ejercicio terapéutico</h3>
+          <p>Programas de fuerza y control motor pautados y progresivos. La clave para que el dolor no vuelva.</p>
+          <span class="trat-tag">Resultados que duran</span>
+          <a href="tratamiento.html?t=ejercicio-terapeutico" class="trat-more">Ver detalle <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="trat-card" data-reveal data-tilt>
+          <span class="trat-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3v3M12 18v3M5 12H2M22 12h-3M6 6l2 2M16 16l2 2M18 6l-2 2M8 16l-2 2"/><circle cx="12" cy="12" r="3.5"/>
+            </svg>
+          </span>
+          <h3>Readaptación deportiva</h3>
+          <p>Del reposo al gesto deportivo sin recaídas. Analizamos tu movimiento y te devolvemos a competir con seguridad.</p>
+          <span class="trat-tag">Vuelta al deporte</span>
+          <a href="tratamiento.html?t=readaptacion-deportiva" class="trat-more">Ver detalle <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="trat-card" data-reveal data-tilt>
+          <span class="trat-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 21s-7-4.35-9.33-9.09C1.3 9 2.6 5.5 6 5.5c2 0 3.2 1.3 4 2.5.8-1.2 2-2.5 4-2.5 3.4 0 4.7 3.5 3.33 6.41C19 16.65 12 21 12 21Z"/>
+            </svg>
+          </span>
+          <h3>Suelo pélvico</h3>
+          <p>Valoración y tratamiento en pre y posparto, incontinencia y dolor pélvico, con total discreción.</p>
+          <span class="trat-tag">Salud íntima y bienestar</span>
+          <a href="tratamiento.html?t=suelo-pelvico" class="trat-more">Ver detalle <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="trat-card" data-reveal data-tilt>
+          <span class="trat-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 6h16M4 12h16M4 18h10"/><circle cx="19" cy="18" r="2"/>
+            </svg>
+          </span>
+          <h3>Fisioterapia postural</h3>
+          <p>Reeducación de la postura y ergonomía para el trabajo y el día a día. Adiós a las sobrecargas.</p>
+          <span class="trat-tag">Prevención a largo plazo</span>
+          <a href="tratamiento.html?t=fisioterapia-postural" class="trat-more">Ver detalle <span aria-hidden="true">→</span></a>
+        </article>
+      </div>
+    </section>
+
+    <!-- ====================== MÉTODO ====================== -->
+    <section class="section metodo" id="metodo">
+      <div class="metodo-grid">
+        <div class="metodo-sticky">
+          <p class="eyebrow" data-reveal><span class="eyebrow-dot"></span> Nuestro método</p>
+          <h2 class="section-title" data-reveal>
+            Un proceso claro,<br>
+            <span class="tx-accent">de la primera visita<br>a tu autonomía.</span>
+          </h2>
+          <p class="section-sub" data-reveal>
+            La fisioterapia funciona cuando entiendes qué te pasa y qué estás
+            haciendo para mejorar. Por eso te acompañamos en cada fase.
+          </p>
+          <a href="#contacto" class="btn btn-primary" data-magnetic data-reveal>
+            <span>Empieza tu proceso</span>
+            <span class="btn-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+
+        <ol class="steps">
+          <li class="step" data-reveal>
+            <span class="step-num">01</span>
+            <div class="step-body">
+              <h3>Valoración clínica</h3>
+              <p>Escuchamos tu historia, exploramos el movimiento y establecemos un diagnóstico funcional. Sabrás exactamente qué te ocurre.</p>
+            </div>
+          </li>
+          <li class="step" data-reveal>
+            <span class="step-num">02</span>
+            <div class="step-body">
+              <h3>Plan personalizado</h3>
+              <p>Definimos objetivos realistas y un plan a medida: terapia manual, ejercicio terapéutico y pautas para casa.</p>
+            </div>
+          </li>
+          <li class="step" data-reveal>
+            <span class="step-num">03</span>
+            <div class="step-body">
+              <h3>Tratamiento & progreso</h3>
+              <p>Trabajamos sesión a sesión midiendo resultados. Si algo cambia, el plan se adapta contigo.</p>
+            </div>
+          </li>
+          <li class="step" data-reveal>
+            <span class="step-num">04</span>
+            <div class="step-body">
+              <h3>Prevención & autonomía</h3>
+              <p>Te damos herramientas para mantenerte fuerte y sin dolor por tu cuenta. El objetivo es que nos necesites cada vez menos.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ====================== TARIFAS ====================== -->
+    <section class="section tarifas" id="tarifas">
+      <div class="section-head">
+        <p class="eyebrow" data-reveal><span class="eyebrow-dot"></span> Tarifas & bonos</p>
+        <h2 class="section-title" data-reveal>
+          Precios claros,<br><span class="tx-accent">sin sorpresas</span>
+        </h2>
+        <p class="section-sub" data-reveal>
+          Cuanto más constante es el tratamiento, mejores resultados y mejor precio
+          por sesión. Elige el plan que encaja contigo.
+        </p>
+      </div>
+
+      <div class="tarifas-grid">
+        <article class="plan" data-reveal data-tilt>
+          <span class="plan-name">Sesión suelta</span>
+          <div class="plan-price">45€ <small>/ sesión</small></div>
+          <span class="plan-per">Ideal para valorar tu caso</span>
+          <ul class="plan-feats">
+            <li>Valoración fisioterapéutica completa</li>
+            <li>Sesión individual de 50 min</li>
+            <li>Terapia manual + pautas para casa</li>
+            <li>Informe de tu diagnóstico funcional</li>
+          </ul>
+          <a href="#contacto" class="btn btn-ghost" data-magnetic><span>Reservar sesión</span></a>
+        </article>
+
+        <article class="plan plan-featured" data-reveal data-tilt>
+          <span class="plan-badge">Más elegido</span>
+          <span class="plan-name">Bono 5 sesiones</span>
+          <div class="plan-price">200€ <small>/ bono</small></div>
+          <span class="plan-per">40€ por sesión · ahorras 25€</span>
+          <ul class="plan-feats">
+            <li>Todo lo del plan individual</li>
+            <li>Plan de tratamiento personalizado</li>
+            <li>Ejercicio terapéutico pautado</li>
+            <li>Seguimiento de tu progreso</li>
+            <li>Prioridad en la reserva de citas</li>
+          </ul>
+          <a href="#contacto" class="btn btn-primary" data-magnetic>
+            <span>Empezar mi plan</span>
+            <span class="btn-arrow" aria-hidden="true">→</span>
+          </a>
+        </article>
+
+        <article class="plan" data-reveal data-tilt>
+          <span class="plan-name">Bono 10 sesiones</span>
+          <div class="plan-price">380€ <small>/ bono</small></div>
+          <span class="plan-per">38€ por sesión · ahorras 70€</span>
+          <ul class="plan-feats">
+            <li>Todo lo del bono de 5 sesiones</li>
+            <li>Programa completo de readaptación</li>
+            <li>Revisión preventiva de regalo</li>
+            <li>Acceso a pautas y vídeos de ejercicios</li>
+            <li>Atención por WhatsApp entre sesiones</li>
+          </ul>
+          <a href="#contacto" class="btn btn-ghost" data-magnetic><span>Quiero este plan</span></a>
+        </article>
+      </div>
+      <div class="tarifas-pago" data-reveal>
+        <span class="tarifas-pago-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 9.5h19"/></svg>
+        </span>
+        <p><strong>Aquí solo reservas tu cita.</strong> El pago se realiza <strong>después de cada sesión</strong>, en la clínica (efectivo o tarjeta). No se cobra nada por adelantado a través de la web.</p>
+      </div>
+      <p class="tarifas-note">Precios orientativos de ejemplo · IVA incluido. Consúltanos por sesiones a domicilio o tratamientos específicos.</p>
+    </section>
+
+    <!-- ====================== TESTIMONIOS ====================== -->
+    <section class="section testimonios" id="testimonios">
+      <div class="section-head">
+        <p class="eyebrow" data-reveal><span class="eyebrow-dot"></span> Lo que cuentan</p>
+        <h2 class="section-title" data-reveal>Historias que vuelven a moverse</h2>
+        <p class="section-sub" data-reveal>
+          <em>Testimonios de ejemplo</em> — los sustituiremos por reseñas reales de tus pacientes.
+        </p>
+      </div>
+
+      <div class="testi-carousel" data-reveal>
+        <div class="testi-viewport">
+          <div class="testi-track">
+            <!-- Columna A · el bloque se duplica para bucle infinito sin saltos -->
+            <figure class="testi-card">
+              <div class="stars" aria-label="5 de 5 estrellas">★★★★★</div>
+              <blockquote>“Llegué con una hernia y sin poder dormir del dolor. En tres meses volví a correr. No solo me trataron: me enseñaron a cuidar mi espalda para siempre.”</blockquote>
+              <figcaption><span class="avatar ph" data-img="testi-1" aria-hidden="true"></span><span><strong>Laura Méndez</strong><em>Dolor lumbar crónico</em></span></figcaption>
+            </figure>
+            <figure class="testi-card">
+              <div class="stars" aria-label="5 de 5 estrellas">★★★★★</div>
+              <blockquote>“Trabajo 9 horas frente al ordenador. Adiós a las cervicales bloqueadas. Cambiaron mi día a día.”</blockquote>
+              <figcaption><span class="avatar ph" data-img="testi-3" aria-hidden="true"></span><span><strong>Marta Ruiz</strong><em>Dolor cervical y postural</em></span></figcaption>
+            </figure>
+            <figure class="testi-card">
+              <div class="stars" aria-label="5 de 5 estrellas">★★★★★</div>
+              <blockquote>“A mis 72 años he recuperado equilibrio y seguridad para caminar. Un trato humano excepcional.”</blockquote>
+              <figcaption><span class="avatar ph" data-img="testi-5" aria-hidden="true"></span><span><strong>Antonio Gil</strong><em>Movilidad y prevención de caídas</em></span></figcaption>
+            </figure>
+            <figure class="testi-card">
+              <div class="stars" aria-label="5 de 5 estrellas">★★★★★</div>
+              <blockquote>“Después del embarazo tenía molestias que arrastraba meses. El trabajo de suelo pélvico me devolvió la normalidad.”</blockquote>
+              <figcaption><span class="avatar ph" data-img="testi-6" aria-hidden="true"></span><span><strong>Nuria Cano</strong><em>Recuperación posparto</em></span></figcaption>
+            </figure>
+            <!-- Duplicado exacto -->
+            <figure class="testi-card" aria-hidden="true">
+              <div class="stars">★★★★★</div>
+              <blockquote>“Llegué con una hernia y sin poder dormir del dolor. En tres meses volví a correr. No solo me trataron: me enseñaron a cuidar mi espalda para siempre.”</blockquote>
+              <figcaption><span class="avatar ph" data-img="testi-1" aria-hidden="true"></span><span><strong>Laura Méndez</strong><em>Dolor lumbar crónico</em></span></figcaption>
+            </figure>
+            <figure class="testi-card" aria-hidden="true">
+              <div class="stars">★★★★★</div>
+              <blockquote>“Trabajo 9 horas frente al ordenador. Adiós a las cervicales bloqueadas. Cambiaron mi día a día.”</blockquote>
+              <figcaption><span class="avatar ph" data-img="testi-3" aria-hidden="true"></span><span><strong>Marta Ruiz</strong><em>Dolor cervical y postural</em></span></figcaption>
+            </figure>
+            <figure class="testi-card" aria-hidden="true">
+              <div class="stars">★★★★★</div>
+              <blockquote>“A mis 72 años he recuperado equilibrio y seguridad para caminar. Un trato humano excepcional.”</blockquote>
+              <figcaption><span class="avatar ph" data-img="testi-5" aria-hidden="true"></span><span><strong>Antonio Gil</strong><em>Movilidad y prevención de caídas</em></span></figcaption>
+            </figure>
+            <figure class="testi-card" aria-hidden="true">
+              <div class="stars">★★★★★</div>
+              <blockquote>“Después del embarazo tenía molestias que arrastraba meses. El trabajo de suelo pélvico me devolvió la normalidad.”</blockquote>
+              <figcaption><span class="avatar ph" data-img="testi-6" aria-hidden="true"></span><span><strong>Nuria Cano</strong><em>Recuperación posparto</em></span></figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="testi-viewport second">
+          <div class="testi-track slow">
+            <figure class="testi-card">
+              <div class="stars" aria-label="5 de 5 estrellas">★★★★★</div>
+              <blockquote>“Tras la operación de rodilla pensé que no volvería al pádel. Me equivoqué. Profesionales de verdad.”</blockquote>
+              <figcaption><span class="avatar ph" data-img="testi-2" aria-hidden="true"></span><span><strong>Javier Ortín</strong><em>Rehabilitación post-quirúrgica</em></span></figcaption>
+            </figure>
+            <figure class="testi-card">
+              <div class="stars" aria-label="5 de 5 estrellas">★★★★★</div>
+              <blockquote>“Mi hijo de 14 se lesionó jugando al fútbol. La readaptación fue impecable y volvió más fuerte.”</blockquote>
+              <figcaption><span class="avatar ph" data-img="testi-4" aria-hidden="true"></span><span><strong>Elena Vidal</strong><em>Lesión deportiva juvenil</em></span></figcaption>
+            </figure>
+            <figure class="testi-card">
+              <div class="stars" aria-label="5 de 5 estrellas">★★★★★</div>
+              <blockquote>“Corro maratones y venía arrastrando una tendinopatía. Con la EPTE y los ejercicios volví a rodar sin dolor.”</blockquote>
+              <figcaption><span class="avatar ph" data-img="testi-7" aria-hidden="true"></span><span><strong>Diego Salas</strong><em>Tendinopatía de aquiles</em></span></figcaption>
+            </figure>
+            <figure class="testi-card">
+              <div class="stars" aria-label="5 de 5 estrellas">★★★★★</div>
+              <blockquote>“Migrañas y tensión cervical durante años. Nunca imaginé que la fisioterapia me daría tanto alivio.”</blockquote>
+              <figcaption><span class="avatar ph" data-img="testi-8" aria-hidden="true"></span><span><strong>Patricia León</strong><em>Cefalea tensional</em></span></figcaption>
+            </figure>
+            <!-- Duplicado exacto -->
+            <figure class="testi-card" aria-hidden="true">
+              <div class="stars">★★★★★</div>
+              <blockquote>“Tras la operación de rodilla pensé que no volvería al pádel. Me equivoqué. Profesionales de verdad.”</blockquote>
+              <figcaption><span class="avatar ph" data-img="testi-2" aria-hidden="true"></span><span><strong>Javier Ortín</strong><em>Rehabilitación post-quirúrgica</em></span></figcaption>
+            </figure>
+            <figure class="testi-card" aria-hidden="true">
+              <div class="stars">★★★★★</div>
+              <blockquote>“Mi hijo de 14 se lesionó jugando al fútbol. La readaptación fue impecable y volvió más fuerte.”</blockquote>
+              <figcaption><span class="avatar ph" data-img="testi-4" aria-hidden="true"></span><span><strong>Elena Vidal</strong><em>Lesión deportiva juvenil</em></span></figcaption>
+            </figure>
+            <figure class="testi-card" aria-hidden="true">
+              <div class="stars">★★★★★</div>
+              <blockquote>“Corro maratones y venía arrastrando una tendinopatía. Con la EPTE y los ejercicios volví a rodar sin dolor.”</blockquote>
+              <figcaption><span class="avatar ph" data-img="testi-7" aria-hidden="true"></span><span><strong>Diego Salas</strong><em>Tendinopatía de aquiles</em></span></figcaption>
+            </figure>
+            <figure class="testi-card" aria-hidden="true">
+              <div class="stars">★★★★★</div>
+              <blockquote>“Migrañas y tensión cervical durante años. Nunca imaginé que la fisioterapia me daría tanto alivio.”</blockquote>
+              <figcaption><span class="avatar ph" data-img="testi-8" aria-hidden="true"></span><span><strong>Patricia León</strong><em>Cefalea tensional</em></span></figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== FAQ ====================== -->
+    <section class="section faq" id="faq">
+      <div class="section-head">
+        <p class="eyebrow" data-reveal><span class="eyebrow-dot"></span> Preguntas frecuentes</p>
+        <h2 class="section-title" data-reveal>Resolvemos tus dudas</h2>
+        <p class="section-sub" data-reveal>
+          Y si te queda alguna, escríbenos: te respondemos en menos de 24&nbsp;h.
+        </p>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item open" data-reveal>
+          <button class="faq-q" aria-expanded="true">
+            ¿Necesito una receta o derivación médica para ir?
+            <span class="faq-ico" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">
+            <p>No. Puedes acudir directamente a fisioterapia sin volante ni derivación. En la primera visita valoramos tu caso y, si detectamos algo que requiere a otro profesional, te lo indicamos.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item" data-reveal>
+          <button class="faq-q" aria-expanded="false">
+            ¿Cuántas sesiones voy a necesitar?
+            <span class="faq-ico" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">
+            <p>Depende de tu lesión, tiempo de evolución y objetivos. Tras la valoración inicial te damos una estimación realista y honesta. Muchos procesos mejoran de forma notable en 4–6 sesiones.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item" data-reveal>
+          <button class="faq-q" aria-expanded="false">
+            ¿Cuánto dura cada sesión?
+            <span class="faq-ico" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">
+            <p>Entre 45 y 60 minutos, siempre de forma individual y con el mismo fisioterapeuta para dar continuidad a tu tratamiento.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item" data-reveal>
+          <button class="faq-q" aria-expanded="false">
+            ¿El tratamiento duele?
+            <span class="faq-ico" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">
+            <p>Trabajamos dentro de un umbral tolerable. Algunas técnicas pueden generar molestia puntual, pero siempre te explicamos qué vamos a hacer y ajustamos la intensidad contigo.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item" data-reveal>
+          <button class="faq-q" aria-expanded="false">
+            ¿Atendéis a todas las edades?
+            <span class="faq-ico" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">
+            <p>Sí. Tratamos desde jóvenes deportistas hasta personas mayores, incluyendo embarazo, posparto y prevención de caídas. Adaptamos cada plan a la condición de la persona.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item" data-reveal>
+          <button class="faq-q" aria-expanded="false">
+            ¿Qué llevo a la primera sesión?
+            <span class="faq-ico" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">
+            <p>Ropa cómoda y, si los tienes, informes o pruebas médicas relacionadas (radiografías, resonancias, etc.). No son imprescindibles para empezar a valorarte.</p>
+          </div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== CONTACTO ====================== -->
+    <section class="section contacto" id="contacto">
+      <div class="contacto-glow" aria-hidden="true"></div>
+      <div class="contacto-grid">
+        <div class="contacto-info">
+          <p class="eyebrow" data-reveal><span class="eyebrow-dot"></span> Da el primer paso</p>
+          <h2 class="section-title" data-reveal>
+            Reserva tu<br><span class="tx-accent">valoración inicial</span>
+          </h2>
+          <p class="section-sub" data-reveal>
+            Cuéntanos qué te pasa y te propondremos el mejor punto de partida.
+            Sin compromiso. Respondemos en menos de 24&nbsp;h.
+          </p>
+
+          <ul class="contacto-list" data-reveal>
+            <li>
+              <span class="ci-icon" aria-hidden="true">✆</span>
+              <span><em>Teléfono</em><a data-brand="phone" href="#">—</a></span>
+            </li>
+            <li>
+              <span class="ci-icon" aria-hidden="true">✉</span>
+              <span><em>Email</em><a data-brand="email" href="#">—</a></span>
+            </li>
+            <li>
+              <span class="ci-icon" aria-hidden="true">◎</span>
+              <span><em>Dónde estamos</em><span data-brand="address">—</span></span>
+            </li>
+            <li>
+              <span class="ci-icon" aria-hidden="true">◔</span>
+              <span><em>Horario</em><span data-brand="hours">—</span></span>
+            </li>
+          </ul>
+        </div>
+
+        <form class="contacto-form" id="contactForm" data-reveal novalidate>
+          <div class="field">
+            <input type="text" id="nombre" name="nombre" required placeholder=" " />
+            <label for="nombre">Nombre y apellidos</label>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <input type="email" id="email" name="email" required placeholder=" " />
+              <label for="email">Email</label>
+            </div>
+            <div class="field">
+              <input type="tel" id="telefono" name="telefono" placeholder=" " />
+              <label for="telefono">Teléfono</label>
+            </div>
+          </div>
+          <div class="field">
+            <select id="motivo" name="motivo" required>
+              <option value="" disabled selected></option>
+              <option>Lesión o dolor agudo</option>
+              <option>Dolor crónico</option>
+              <option>Problema postural</option>
+              <option>Rehabilitación</option>
+              <option>Rendimiento / deporte</option>
+              <option>Prevención y mantenimiento</option>
+            </select>
+            <label for="motivo" class="label-static">Motivo de la consulta</label>
+          </div>
+          <div class="field">
+            <textarea id="mensaje" name="mensaje" rows="4" placeholder=" "></textarea>
+            <label for="mensaje">Cuéntanos brevemente qué te ocurre</label>
+          </div>
+          <label class="check">
+            <input type="checkbox" required />
+            <span>He leído y acepto la política de privacidad.</span>
+          </label>
+          <button type="submit" class="btn btn-primary btn-block" data-magnetic>
+            <span>Enviar solicitud</span>
+            <span class="btn-arrow" aria-hidden="true">→</span>
+          </button>
+          <p class="form-note" id="formNote" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ====================== FOOTER ====================== -->
+  <footer class="footer">
+    <div class="footer-cta">
+      <h2 data-reveal>¿Empezamos a<br><span class="tx-accent">cuidarte de verdad?</span></h2>
+      <a href="#contacto" class="btn btn-primary btn-lg" data-magnetic data-reveal>
+        <span>Pedir cita ahora</span>
+        <span class="btn-arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+    <div class="footer-inner">
+      <div class="footer-col footer-brand">
+        <span class="brand-name">Kinea</span>
+        <p data-brand="tagline">Fisioterapia & Rendimiento</p>
+        <ul class="footer-contact">
+          <li><span aria-hidden="true">✆</span> <a data-brand="phone" href="#">—</a></li>
+          <li><span aria-hidden="true">✉</span> <a data-brand="email" href="#">—</a></li>
+          <li><span aria-hidden="true">◎</span> <span data-brand="address">—</span></li>
+          <li><span aria-hidden="true">◔</span> <span data-brand="hours">—</span></li>
+        </ul>
+        <div class="footer-social">
+          <a data-brand-social="instagram" href="#" aria-label="Instagram">Instagram</a>
+          <a data-brand-social="linkedin" href="#" aria-label="LinkedIn">LinkedIn</a>
+          <a data-brand-social="whatsapp" href="#" aria-label="WhatsApp">WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Tratamientos</h4>
+        <nav class="footer-nav" aria-label="Tratamientos">
+          <a href="tratamiento.html?t=terapia-manual">Terapia manual</a>
+          <a href="tratamiento.html?t=puncion-seca">Punción seca &amp; EPTE</a>
+          <a href="tratamiento.html?t=ejercicio-terapeutico">Ejercicio terapéutico</a>
+          <a href="tratamiento.html?t=readaptacion-deportiva">Readaptación deportiva</a>
+          <a href="tratamiento.html?t=suelo-pelvico">Suelo pélvico</a>
+          <a href="tratamiento.html?t=fisioterapia-postural">Fisioterapia postural</a>
+        </nav>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navegación</h4>
+        <nav class="footer-nav" aria-label="Secciones">
+          <a href="#lesiones">Síntomas</a>
+          <a href="#tarifas">Tarifas & bonos</a>
+          <a href="#testimonios">Opiniones</a>
+          <a href="#faq">Preguntas frecuentes</a>
+          <a href="#contacto">Contacto / Pedir cita</a>
+        </nav>
+      </div>
+
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <nav class="footer-nav" aria-label="Legal">
+          <a href="aviso-legal.html">Aviso legal</a>
+          <a href="privacidad.html">Política de privacidad</a>
+          <a href="cookies.html">Política de cookies</a>
+        </nav>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> Kinea Fisioterapia. Todos los derechos reservados.</span>
+      <span class="footer-legal"><a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a></span>
+    </div>
+  </footer>
+
+  <script defer src="lib/manifest.js"></script>
+  <script defer src="main.js?v=20260724f"></script>
+</body>
+</html>
