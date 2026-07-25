@@ -1,0 +1,14 @@
+# Kinea · robots.txt
+# Sustituye el dominio por el tuyo antes de publicar.
+
+User-agent: *
+Allow: /
+
+# Páginas legales: accesibles pero fuera del índice de búsqueda
+Disallow: /aviso-legal.html
+Disallow: /privacidad.html
+Disallow: /cookies.html
+Disallow: /borradores/
+Disallow: /backend/
+
+Sitemap: https://www.ejemplo.com/sitemap.xml

@@ -12,12 +12,12 @@
 /* ========== CONFIGURACIÓN (edita aquí) ========== */
 
 // Orígenes permitidos. IMPORTANTE: el header Origin que envía el navegador
-// es SIEMPRE esquema+host(+puerto), nunca incluye la ruta — por eso aquí
-// va "https://hectormelgar22.github.io" sin "/kinea-fisioterapia/" detrás.
-// Poner la ruta aquí hace que la comparación nunca coincida y el Worker
-// devuelva 403 "Origen no permitido" para todas las peticiones reales.
+// es SIEMPRE esquema + host (+puerto), NUNCA incluye la ruta.
+//   ✅ "https://www.tudominio.com"
+//   ❌ "https://www.tudominio.com/carpeta/"  ← nunca coincidirá → 403
 var ALLOWED_ORIGINS = [
-  "https://hectormelgar22.github.io",   // tu web en GitHub Pages (todo el dominio de usuario)
+  "https://www.tudominio.com",          // ← CAMBIA ESTO por tu dominio real
+  "https://tudominio.com",              // variante sin www
   "http://localhost:8123",              // desarrollo local
   "http://127.0.0.1:8123"
 ];

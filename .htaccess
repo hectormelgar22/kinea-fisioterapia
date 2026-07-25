@@ -1,29 +1,75 @@
-# ====== Kinea · configuración del servidor ======
+# ============================================================
+# Kinea · Configuración del servidor (Apache / Hostinger)
+# En GitHub Pages este archivo se ignora: allí la seguridad la
+# aplican las etiquetas <meta> de cada página.
+# ============================================================
 
-# Página por defecto
 DirectoryIndex index.html
+ErrorDocument 404 /404.html
 
-# Compresión
+# ---------- Compresión ----------
 <IfModule mod_deflate.c>
-  AddOutputFilterByType DEFLATE text/html text/css application/javascript image/svg+xml
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml \
+    application/javascript application/json image/svg+xml
 </IfModule>
 
-# Cache de estáticos
+# ---------- Caché ----------
 <IfModule mod_expires.c>
   ExpiresActive On
-  ExpiresByType text/css "access plus 7 days"
-  ExpiresByType application/javascript "access plus 7 days"
-  ExpiresByType image/webp "access plus 30 days"
-  ExpiresByType image/svg+xml "access plus 30 days"
-  ExpiresByType text/html "access plus 0 seconds"
+  # Los estáticos llevan ?v= en la URL, así que se pueden cachear mucho tiempo
+  ExpiresByType text/css                "access plus 1 year"
+  ExpiresByType application/javascript  "access plus 1 year"
+  ExpiresByType image/webp              "access plus 1 year"
+  ExpiresByType image/svg+xml           "access plus 1 year"
+  ExpiresByType font/woff2              "access plus 1 year"
+  # El HTML nunca se cachea: así los cambios se ven al instante
+  ExpiresByType text/html               "access plus 0 seconds"
 </IfModule>
 
-# Seguridad básica
+# ---------- Cabeceras de seguridad ----------
 <IfModule mod_headers.c>
-  Header set X-Content-Type-Options "nosniff"
-  Header set X-Frame-Options "SAMEORIGIN"
-  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  # Solo se ejecutan scripts propios. Si añades analítica o mapas,
+  # incluye aquí sus dominios o el navegador los bloqueará.
+  Header always set Content-Security-Policy "default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://*.workers.dev; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
+
+  # Fuerza HTTPS durante 1 año (actívalo solo cuando el certificado funcione)
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "DENY"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Cross-Origin-Opener-Policy "same-origin"
+  Header always set Cross-Origin-Resource-Policy "same-origin"
+
+  # Desactiva APIs del navegador que esta web no necesita
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()"
+
+  # Cachea los estáticos versionados de forma inmutable
+  <FilesMatch "\.(css|js|woff2|webp|svg)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
 </IfModule>
 
-# Errores
-ErrorDocument 404 /index.html
+# ---------- No servir archivos de trabajo ----------
+RedirectMatch 404 /borradores/
+RedirectMatch 404 /backend/
+<FilesMatch "\.(md|txt~|bak|log)$">
+  Require all denied
+</FilesMatch>
+# robots.txt debe seguir siendo accesible
+<Files "robots.txt">
+  Require all granted
+</Files>
+
+# ---------- Forzar HTTPS y quitar .html de las URLs ----------
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # /tratamiento → /tratamiento.html
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^([^\.]+)$ $1.html [NC,L]
+</IfModule>

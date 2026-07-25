@@ -3,14 +3,36 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kinea · Fisioterapia & Rendimiento</title>
+  <!-- Seguridad: solo se ejecutan scripts propios; bloquea inyecciones y terceros -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://*.workers.dev; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <title>Kinea · Fisioterapia y rendimiento en Madrid</title>
   <meta name="description" content="Fisioterapia de precisión para todas las edades. Tratamos lesiones, dolor crónico y problemas posturales, y trabajamos la prevención y el rendimiento funcional." />
+  <meta name="theme-color" content="#05100e" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="canonical" href="https://www.ejemplo.com/" />
+
+  <!-- Cómo se ve al compartir en redes y WhatsApp -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:site_name" content="Kinea" />
+  <meta property="og:title" content="Kinea · Fisioterapia y rendimiento en Madrid" />
+  <meta property="og:description" content="Tratamos lesiones, dolor crónico y problemas posturales. Prevención, salud y rendimiento funcional." />
+  <meta property="og:url" content="https://www.ejemplo.com/" />
+  <meta property="og:image" content="https://www.ejemplo.com/assets/img/og-cover.jpg" />
+  <meta property="og:image:alt" content="Kinea · Fisioterapia y rendimiento" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Favicon SVG en línea: sin peticiones extra -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2305100e'/%3E%3Cpath d='M16 5c3.5 4.4 7 7 7 12.2a7 7 0 1 1-14 0C9 12 12.5 9.4 16 5Z' fill='none' stroke='%2334e3a4' stroke-width='1.8'/%3E%3Cpath d='M16 13v8M12.5 17h7' stroke='%2334e3a4' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- preload adelanta la descarga; display=swap evita el texto invisible -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Inter:wght@300;400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Inter:wght@300;400;500;600;700&display=swap" />
 
-  <link rel="stylesheet" href="styles.css?v=20260724f" />
+  <link rel="stylesheet" href="styles.css?v=20260725b" />
 </head>
 <body>
   <a class="skip-link" href="#main">Saltar al contenido</a>
@@ -181,7 +203,7 @@
     <section class="section ventajas" id="ventajas">
       <div class="section-head">
         <p class="eyebrow" data-reveal><span class="eyebrow-dot"></span> Por qué fisioterapia</p>
-        <h2 class="section-title" data-reveal>
+        <h2 class="section-title" data-split>
           No calmamos el síntoma.<br>
           <span class="tx-accent">Resolvemos el origen.</span>
         </h2>
@@ -279,7 +301,7 @@
     <section class="section lesiones" id="lesiones">
       <div class="section-head">
         <p class="eyebrow" data-reveal><span class="eyebrow-dot"></span> ¿Qué te pasa?</p>
-        <h2 class="section-title" data-reveal>
+        <h2 class="section-title" data-split>
           En nuestra clínica<br><span class="tx-accent">podemos ayudarte</span>
         </h2>
         <p class="section-sub" data-reveal>
@@ -390,7 +412,7 @@
     <section class="section tratamientos" id="tratamientos">
       <div class="section-head">
         <p class="eyebrow" data-reveal><span class="eyebrow-dot"></span> Qué ofrecemos</p>
-        <h2 class="section-title" data-reveal>
+        <h2 class="section-title" data-split>
           Tratamientos que<br><span class="tx-accent">devuelven el movimiento</span>
         </h2>
         <p class="section-sub" data-reveal>
@@ -479,7 +501,7 @@
       <div class="metodo-grid">
         <div class="metodo-sticky">
           <p class="eyebrow" data-reveal><span class="eyebrow-dot"></span> Nuestro método</p>
-          <h2 class="section-title" data-reveal>
+          <h2 class="section-title" data-split>
             Un proceso claro,<br>
             <span class="tx-accent">de la primera visita<br>a tu autonomía.</span>
           </h2>
@@ -530,7 +552,7 @@
     <section class="section tarifas" id="tarifas">
       <div class="section-head">
         <p class="eyebrow" data-reveal><span class="eyebrow-dot"></span> Tarifas & bonos</p>
-        <h2 class="section-title" data-reveal>
+        <h2 class="section-title" data-split>
           Precios claros,<br><span class="tx-accent">sin sorpresas</span>
         </h2>
         <p class="section-sub" data-reveal>
@@ -598,7 +620,7 @@
     <section class="section testimonios" id="testimonios">
       <div class="section-head">
         <p class="eyebrow" data-reveal><span class="eyebrow-dot"></span> Lo que cuentan</p>
-        <h2 class="section-title" data-reveal>Historias que vuelven a moverse</h2>
+        <h2 class="section-title" data-split>Historias que vuelven a moverse</h2>
         <p class="section-sub" data-reveal>
           <em>Testimonios de ejemplo</em> — los sustituiremos por reseñas reales de tus pacientes.
         </p>
@@ -704,7 +726,7 @@
     <section class="section faq" id="faq">
       <div class="section-head">
         <p class="eyebrow" data-reveal><span class="eyebrow-dot"></span> Preguntas frecuentes</p>
-        <h2 class="section-title" data-reveal>Resolvemos tus dudas</h2>
+        <h2 class="section-title" data-split>Resolvemos tus dudas</h2>
         <p class="section-sub" data-reveal>
           Y si te queda alguna, escríbenos: te respondemos en menos de 24&nbsp;h.
         </p>
@@ -779,7 +801,7 @@
       <div class="contacto-grid">
         <div class="contacto-info">
           <p class="eyebrow" data-reveal><span class="eyebrow-dot"></span> Da el primer paso</p>
-          <h2 class="section-title" data-reveal>
+          <h2 class="section-title" data-split>
             Reserva tu<br><span class="tx-accent">valoración inicial</span>
           </h2>
           <p class="section-sub" data-reveal>
@@ -837,6 +859,11 @@
           <div class="field">
             <textarea id="mensaje" name="mensaje" rows="4" placeholder=" "></textarea>
             <label for="mensaje">Cuéntanos brevemente qué te ocurre</label>
+          </div>
+          <!-- Trampa anti-spam: invisible para personas, los bots la rellenan -->
+          <div class="hp" aria-hidden="true">
+            <label for="empresa">No rellenes este campo</label>
+            <input type="text" id="empresa" name="empresa" tabindex="-1" autocomplete="off" />
           </div>
           <label class="check">
             <input type="checkbox" required />
@@ -917,7 +944,7 @@
   </footer>
 
   <script defer src="lib/manifest.js"></script>
-  <script defer src="main.js?v=20260724f"></script>
-  <script defer src="chat.js?v=3"></script>
+  <script defer src="main.js?v=20260725b"></script>
+  <script defer src="chat.js?v=20260725b"></script>
 </body>
 </html>
