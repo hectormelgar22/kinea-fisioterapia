@@ -503,7 +503,20 @@ em { font-style: italic; }
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor; mask-composite: exclude;
 }
-.plan-badge { position: absolute; top: 1.3rem; right: 1.3rem; font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; font-weight: 600; color: #04140f; background: linear-gradient(105deg, var(--accent), var(--accent-2)); padding: .32rem .7rem; border-radius: 100px; }
+/* El plan destacado usa layout de columna: cabecera con nombre + badge en línea */
+.plan-featured .plan-head {
+  display: flex; align-items: center; justify-content: space-between; gap: .8rem;
+  margin-bottom: .4rem;
+}
+/* Insignia "Más elegido": pastilla inline pequeña, no ocupa toda la fila */
+.plan-badge {
+  display: inline-block; flex-shrink: 0;
+  font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; font-weight: 600;
+  color: #04140f; background: linear-gradient(105deg, var(--accent), var(--accent-2));
+  padding: .34rem .75rem; border-radius: 100px;
+  white-space: nowrap;
+}
+.plan-featured .plan-head .plan-name { margin: 0; }
 .plan-name { font-family: var(--body); font-weight: 600; text-transform: uppercase; letter-spacing: .14em; font-size: .78rem; color: var(--ink-2); }
 .plan-price { font-family: var(--display); font-size: clamp(2.4rem, 4.4vw, 3.3rem); line-height: 1; margin: .9rem 0 .1rem; }
 .plan-price small { font-size: 1rem; font-family: var(--body); color: var(--muted); }
@@ -578,9 +591,18 @@ em { font-style: italic; }
 .nav-drop a:hover { background: rgba(52,227,164,.1); color: var(--accent); }
 
 /* ====== 15h. Enlace de detalle de tratamiento ====== */
-.trat-more { display: inline-flex; align-items: center; gap: .4rem; margin-top: 1rem; font-size: .86rem; font-weight: 600; color: var(--accent); align-self: flex-start; transition: gap .3s var(--ease); }
+.trat-more {
+  display: inline-flex; align-items: center; gap: .4rem;
+  margin-top: 1rem; padding: .55rem .9rem;
+  min-height: 40px; box-sizing: border-box;
+  font-size: .86rem; font-weight: 600; color: var(--accent);
+  align-self: flex-start;
+  border: 1px solid var(--line-2); border-radius: 100px;
+  background: rgba(52,227,164,.06);
+  transition: gap .3s var(--ease), background .3s, border-color .3s;
+}
 .trat-more span { transition: transform .3s var(--ease); }
-.trat-more:hover { gap: .7rem; }
+.trat-more:hover { gap: .7rem; background: rgba(52,227,164,.12); border-color: var(--accent); }
 .trat-more:hover span { transform: translateX(3px); }
 
 /* ====== 15i. Aviso de pago (tarifas) ====== */
@@ -700,6 +722,15 @@ em { font-style: italic; }
 .subnav .brand { margin-right: auto; }
 .subnav-back { display: inline-flex; align-items: center; gap: .4rem; color: var(--ink-2); font-size: .92rem; transition: color .3s, gap .3s; }
 .subnav-back:hover { color: var(--accent); gap: .7rem; }
+/* En subpáginas el botón "Pedir cita" es CTA principal y debe seguir visible
+   en móvil, aunque el .btn-nav general se oculte para la home. */
+.subnav .btn-nav { display: inline-flex !important; }
+@media (max-width: 480px) {
+  /* En pantallas muy estrechas, la subnav se apila y el CTA ocupa la fila entera */
+  .subnav-inner { flex-wrap: wrap; gap: .6rem .8rem; padding-top: .7rem; padding-bottom: .7rem; }
+  .subnav-back { margin-left: auto; font-size: .84rem; }
+  .subnav .btn-nav { --bh: 40px; padding: 0 1rem; font-size: .88rem; }
+}
 
 .subpage { padding-top: 2rem; min-height: 60vh; }
 .subhero { max-width: var(--maxw); margin: 0 auto; padding: clamp(3rem, 7vw, 5.5rem) var(--pad) 0; position: relative; }
@@ -826,7 +857,8 @@ em { font-style: italic; }
 /* ====== 20d. Pausa del carrusel de opiniones ====== */
 .testi-toggle {
   display: inline-flex; align-items: center; gap: .45rem;
-  margin: 0 0 1rem auto; padding: .45rem .9rem;
+  margin: 0 0 1rem auto; padding: .6rem 1rem;
+  min-height: 40px; box-sizing: border-box;
   border-radius: 100px; font-size: .78rem; letter-spacing: .04em;
   color: var(--ink-2); background: rgba(255,255,255,.03);
   border: 1px solid var(--line-2);
