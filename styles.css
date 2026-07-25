@@ -631,15 +631,24 @@ em { font-style: italic; }
 
 .is-ready [data-reveal] { will-change: opacity, transform; }
 
-/* Títulos que entran palabra a palabra */
-[data-split] .w { display: inline-block; overflow: hidden; vertical-align: top; }
+/* Títulos que entran palabra a palabra.
+   El padding/margin compensado da aire a tildes y descendentes (p, y, g) para
+   que el overflow:hidden no las recorte, sin alterar el interlineado. */
+[data-split] .w {
+  display: inline-block; overflow: hidden; vertical-align: top;
+  padding: .1em .06em .2em; margin: -.1em -.06em -.2em;
+}
 [data-split] .w-i {
   display: inline-block;
-  transform: translateY(105%) rotate(2deg);
+  transform: translateY(115%) rotate(2deg);
   opacity: 0;
   transition: transform .85s var(--ease), opacity .6s var(--ease);
 }
 [data-split].in .w-i { transform: none; opacity: 1; }
+
+/* Red de seguridad: si el navegador no soporta la animación o el observador
+   falla, el título se muestra igualmente. */
+.no-js [data-split] .w-i { transform: none; opacity: 1; }
 
 /* Brillo que sigue al cursor dentro de las tarjetas con tilt */
 [data-tilt] { --mx: 50%; --my: 50%; }
@@ -651,11 +660,10 @@ em { font-style: italic; }
 [data-tilt]:hover::after { opacity: 1; }
 .bento-card > *, .testi-card > *, .trat-card > *, .plan > *, .lesion > * { position: relative; z-index: 2; }
 
-/* ====== 16b. Rendimiento: no pintar lo que está fuera de pantalla ====== */
-.testimonios, .faq, .tarifas, .tratamientos, .lesiones, .metodo {
-  content-visibility: auto;
-  contain-intrinsic-size: auto 900px;
-}
+/* ====== 16b. Rendimiento ======
+   NO usar content-visibility en secciones con títulos [data-split]: al saltarse
+   el renderizado, el IntersectionObserver no llega a dispararse y los títulos
+   se quedan en su estado inicial (invisibles). La ganancia no compensa. */
 
 /* ====== 17. Responsive ====== */
 @media (max-width: 1080px) {

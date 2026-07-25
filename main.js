@@ -216,6 +216,21 @@
       }
       io.observe(el);
     });
+
+    // Red de seguridad: revela cualquier elemento que ya esté en pantalla o que
+    // hayamos sobrepasado. Sin esto, al saltar con un enlace ancla el observador
+    // puede no llegar a dispararse y el título se queda invisible.
+    const rescue = () => {
+      const vh = window.innerHeight;
+      items.forEach((el) => {
+        if (el.classList.contains("in")) return;
+        // top < vh cubre tanto lo visible como lo que queda por encima
+        if (el.getBoundingClientRect().top < vh) { el.classList.add("in"); io.unobserve(el); }
+      });
+    };
+    window.addEventListener("load", rescue);
+    window.addEventListener("scroll", rescue, { passive: true });
+    setTimeout(rescue, 1200);
   }
 
   /* ---- Contadores animados ---- */
