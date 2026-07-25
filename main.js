@@ -184,9 +184,18 @@
               target.appendChild(outer);
             });
           } else if (child.nodeType === 1) {
-            const clone = child.cloneNode(false);
-            walk(child, clone);
-            target.appendChild(clone);
+            if (child.tagName === "BR") { target.appendChild(child.cloneNode(false)); return; }
+            // Los elementos (p.ej. <span class="tx-accent"> con degradado de
+            // texto vía background-clip) se animan como bloque, no palabra a
+            // palabra: trocear su texto los deja sin hijo de texto directo y
+            // el degradado, al no tener nada que recortar, se vuelve invisible.
+            const outer = document.createElement("span");
+            outer.className = "w";
+            const inner = document.createElement("span");
+            inner.className = "w-i";
+            inner.appendChild(child.cloneNode(true));
+            outer.appendChild(inner);
+            target.appendChild(outer);
           }
         });
       };
