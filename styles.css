@@ -688,7 +688,11 @@ em { font-style: italic; }
 /* ====== 17. Responsive ====== */
 @media (max-width: 1080px) {
   .hero-inner { grid-template-columns: 1fr; }
-  .hero-visual { max-width: 460px; order: -1; }
+  /* En una columna manda el mensaje: primero el texto y los botones,
+     el holograma debajo. Así lo primero que se lee es la propuesta.
+     width:100% es necesario: con solo margin-inline:auto el elemento de
+     grid se ajusta al contenido y el panel 3D, sin ancho propio, colapsa. */
+  .hero-visual { width: 100%; max-width: 460px; margin-inline: auto; }
   .bento { grid-template-columns: repeat(2, 1fr); }
   .b-wide { grid-column: span 2; }
   .b-tall { grid-row: span 1; }
