@@ -262,6 +262,51 @@ em { font-style: italic; }
 .hero-visual-glow { position: absolute; inset: -8% -8% -8% -8%; background: radial-gradient(circle at 50% 40%, var(--glow-green), transparent 62%); filter: blur(30px); opacity: .35; z-index: -1; }
 .ph-hero { aspect-ratio: 4/5; }
 
+/* Marco del modelo 3D · "passe-partout" tipo lámina de atlas anatómico.
+   Monta el panel oscuro sobre una cartulina clara para que la isla oscura
+   no choque con la web y gane sensación de pieza enmarcada. */
+.hero-frame {
+  position: relative;
+  background: linear-gradient(165deg, var(--surface) 0%, var(--surface-2) 100%);
+  border: 1px solid var(--line);
+  border-radius: calc(var(--radius) + 12px);
+  padding: clamp(.7rem, 1.4vw, 1rem);
+  box-shadow: var(--sh-lg), inset 0 1px 0 rgba(255,255,255,.7);
+  transition: transform .6s var(--ease), box-shadow .6s var(--ease);
+}
+.hero-frame:hover { transform: translateY(-4px); box-shadow: 0 40px 80px -30px rgba(22,36,31,.34), inset 0 1px 0 rgba(255,255,255,.7); }
+
+/* Cartela superior: rótulo de la lámina */
+.hero-frame-bar {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  padding: .25rem .55rem .8rem;
+}
+.hfr-title {
+  display: inline-flex; align-items: center; gap: .5rem;
+  font-size: .72rem; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--muted);
+}
+.hfr-tag {
+  font-family: var(--display); font-size: .78rem; letter-spacing: .06em;
+  color: var(--clay); border: 1px solid var(--line-2);
+  border-radius: 100px; padding: .18rem .6rem; white-space: nowrap;
+}
+
+/* Esquinas ancladas al panel oscuro (no al marco), para que no choquen
+   con la cartela. .hero-frame-stage aporta 2 y el span las otras 2. */
+.hero-frame-stage { position: relative; }
+/* bloque vacío de altura 0: no genera línea ni hueco bajo el panel */
+.hero-frame-corners { display: block; height: 0; }
+.hero-frame-stage::before, .hero-frame-stage::after,
+.hero-frame-corners::before, .hero-frame-corners::after {
+  content: ""; position: absolute; width: 26px; height: 26px; z-index: 4;
+  border: 2px solid var(--accent); opacity: .5; pointer-events: none;
+}
+.hero-frame-stage::before   { top: -5px;    left: -5px;  border-right: 0; border-bottom: 0; border-top-left-radius: 12px; }
+.hero-frame-stage::after    { bottom: -5px; right: -5px; border-left: 0;  border-top: 0;    border-bottom-right-radius: 12px; }
+.hero-frame-corners::before { top: -5px;    right: -5px; border-left: 0;  border-bottom: 0; border-top-right-radius: 12px; }
+.hero-frame-corners::after  { bottom: -5px; left: -5px;  border-right: 0; border-top: 0;    border-bottom-left-radius: 12px; }
+
 /* Escena 3D interactiva (canvas) */
 .hero-3d {
   position: relative; aspect-ratio: 4/5; border-radius: var(--radius); overflow: hidden;
@@ -274,7 +319,9 @@ em { font-style: italic; }
     radial-gradient(120% 90% at 70% 15%, rgba(90,220,180,.12), transparent 55%),
     linear-gradient(160deg, #103029 0%, #0b2320 55%, #08201f 100%);
   border: 1px solid rgba(22,36,31,.12);
-  box-shadow: var(--sh-lg);
+  /* Va montado dentro de .hero-frame: en vez de sombra proyectada (que se
+     vería sucia sobre la cartulina), un rehundido suave tipo passe-partout. */
+  box-shadow: inset 0 2px 14px rgba(4,16,13,.45), 0 1px 0 rgba(255,255,255,.6);
 }
 .hero-3d::before {
   content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;

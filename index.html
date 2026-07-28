@@ -32,7 +32,7 @@
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Inter:wght@300;400;500;600;700&display=swap" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Inter:wght@300;400;500;600;700&display=swap" />
 
-  <link rel="stylesheet" href="styles.css?v=20260728b" />
+  <link rel="stylesheet" href="styles.css?v=20260728c" />
 </head>
 <body>
   <a class="skip-link" href="#main">Saltar al contenido</a>
@@ -156,11 +156,21 @@
             Nube de puntos con musculatura marcada; la cámara arranca en la
             cara y se aleja hasta el cuerpo completo. 0 dependencias, offline.
           -->
-          <div class="hero-3d" id="hero3d">
-            <canvas class="robot-canvas" id="robotCanvas" role="img"
-                    aria-label="Figura humana anatómica en 3D; la cámara se aleja de la cara al cuerpo completo"></canvas>
-            <div class="hero-3d-caption" aria-hidden="true">
-              <span class="dot-live"></span> Anatomía · Movimiento · Equilibrio
+          <div class="hero-frame">
+            <div class="hero-frame-bar" aria-hidden="true">
+              <span class="hfr-title"><span class="dot-live"></span> Modelo anatómico · 3D</span>
+              <span class="hfr-tag">Fig. 01</span>
+            </div>
+            <div class="hero-frame-stage">
+              <div class="hero-3d" id="hero3d">
+                <canvas class="robot-canvas" id="robotCanvas" role="img"
+                        aria-label="Figura humana anatómica en 3D; la cámara se aleja de la cara al cuerpo completo"></canvas>
+                <div class="hero-3d-caption" aria-hidden="true">
+                  <span class="dot-live"></span> Anatomía · Movimiento · Equilibrio
+                </div>
+              </div>
+              <!-- Esquinas tipo lámina de atlas anatómico: 2 aquí + 2 en el span -->
+              <span class="hero-frame-corners" aria-hidden="true"></span>
             </div>
           </div>
           <div class="hero-visual-glow" aria-hidden="true"></div>
@@ -942,7 +952,7 @@
   </footer>
 
   <script defer src="lib/manifest.js"></script>
-  <script defer src="main.js?v=20260728b"></script>
-  <script defer src="chat.js?v=20260728b"></script>
+  <script defer src="main.js?v=20260728c"></script>
+  <script defer src="chat.js?v=20260728c"></script>
 </body>
 </html>
