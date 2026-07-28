@@ -1110,7 +1110,8 @@ em { font-style: italic; }
   line-height: 1.4;
   text-align: center;
   color: var(--muted);
-  background: rgba(8, 26, 22, .6);
+  background: #ffffff;
+  border-top: 1px solid var(--line);
 }
 .chat-disclaimer a { font-weight: 600; text-decoration: underline; color: var(--accent); }
 
