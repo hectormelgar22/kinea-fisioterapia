@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- Seguridad: solo se ejecutan scripts propios; bloquea inyecciones y terceros -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://*.workers.dev; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests" />
+  <!-- Seguridad: solo se ejecutan scripts propios; bloquea inyecciones y terceros.
+       frame-ancestors no va aquí: en <meta> el navegador lo ignora. Se envía como
+       cabecera HTTP desde .htaccess (Apache/Hostinger). -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://*.workers.dev; form-action 'self'; upgrade-insecure-requests" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <title>Aviso legal · Kinea Fisioterapia</title>
   <meta name="description" content="Aviso legal y condiciones de uso del sitio web de Kinea Fisioterapia." />
@@ -12,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20260728c" />
+  <link rel="stylesheet" href="styles.css?v=20260728d" />
 </head>
 <body>
   <a class="skip-link" href="#main">Saltar al contenido</a>
@@ -93,6 +95,6 @@
   </footer>
 
   <script defer src="lib/manifest.js"></script>
-  <script defer src="main.js?v=20260728c"></script>
+  <script defer src="main.js?v=20260728d"></script>
 </body>
 </html>
