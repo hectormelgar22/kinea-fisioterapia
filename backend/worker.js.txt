@@ -211,7 +211,7 @@ export default {
       var model = candidates[c];
       try {
         var res = await fetch(
-          "https://generativelanguage.googleapis.com/v1beta/models/" + model + ":generateContent",
+          "https://generativelanguage.googleapis.com/v1beta/models/" + model + ":generateContent?key=" + env.GEMINI_API_KEY,
           {
             method: "POST",
             headers: {
@@ -252,6 +252,49 @@ export default {
       } catch (e) {
         lastDetail = e.message;
         console.log("Fetch a Gemini falló (" + model + "): " + e.message);
+      }
+    }
+
+    // Si los modelos habituales fallaron con 404, consultamos a Google qué modelos están activos para esta API key
+    if (!workingModel) {
+      try {
+        var mres = await fetch("https://generativelanguage.googleapis.com/v1beta/models?pageSize=50&key=" + env.GEMINI_API_KEY);
+        if (mres.ok) {
+          var mdata = await mres.json();
+          var dynamicModels = (mdata.models || [])
+            .filter(function (m) { return (m.supportedGenerationMethods || []).indexOf("generateContent") !== -1; })
+            .map(function (m) { return m.name.replace("models/", ""); });
+
+          for (var d = 0; d < dynamicModels.length; d++) {
+            var dmodel = dynamicModels[d];
+            if (candidates.indexOf(dmodel) !== -1) continue;
+            try {
+              var dres = await fetch(
+                "https://generativelanguage.googleapis.com/v1beta/models/" + dmodel + ":generateContent?key=" + env.GEMINI_API_KEY,
+                {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json", "x-goog-api-key": env.GEMINI_API_KEY },
+                  body: JSON.stringify(geminiBody)
+                }
+              );
+              if (dres.ok) {
+                workingModel = dmodel;
+                var ddata = await dres.json();
+                var dreply = extractText(ddata);
+                if (dreply) return json({ reply: redactPersonalData(dreply) }, 200, cors);
+              }
+              lastStatus = dres.status;
+              lastDetail = (await dres.text()).slice(0, 200);
+            } catch (err) {
+              lastDetail = err.message;
+            }
+          }
+        } else {
+          lastStatus = mres.status;
+          lastDetail = (await mres.text()).slice(0, 200);
+        }
+      } catch (e) {
+        lastDetail = e.message;
       }
     }
 
