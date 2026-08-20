@@ -27,15 +27,14 @@ var ALLOWED_ORIGINS = [
   "http://127.0.0.1:3000"
 ];
 
-// Se prueban en orden hasta encontrar uno disponible para tu API key
+// Modelos oficiales activos para tu cuenta (detectados en tu API Key)
 var GEMINI_MODELS = [
-  "gemini-2.0-flash",
-  "gemini-1.5-flash",
-  "gemini-1.5-flash-8b",
-  "gemini-1.5-pro",
-  "gemini-2.5-flash"
+  "gemini-2.5-flash",
+  "gemini-flash-latest",
+  "gemini-2.5-flash-lite",
+  "gemini-pro-latest"
 ];
-var workingModel = null; // se recuerda el que funcione
+var workingModel = "gemini-2.5-flash"; // Modelo verificado para tu API Key
 var RATE_PER_MINUTE = 8;    // mensajes por IP y minuto
 var RATE_PER_DAY = 60;      // mensajes por IP y día
 var MAX_MESSAGE_CHARS = 1000;
@@ -56,11 +55,12 @@ var SYSTEM_PROMPT = [
   "6. No inventes datos del centro (precios, nombres de terapeutas, horarios exactos). Si no lo sabes, dilo y remite al formulario de contacto o al teléfono.",
   "7. PROTECCIÓN DE DATOS: nunca pidas ni animes a que la persona comparta datos personales por el chat (nombre completo, apellidos, DNI, dirección postal, email, teléfono, fecha de nacimiento, datos médicos concretos, datos bancarios, contraseñas, códigos, historia clínica detallada, nombres de otras personas). Si el usuario los escribe por su cuenta, NO los repitas nunca en tu respuesta, no los confirmes ni los cites. En su lugar, di con amabilidad que por privacidad no gestionamos esos datos por el chat y que los faciliten en el formulario de contacto o por teléfono, que son canales seguros.",
   "8. Termina siempre las frases. Si sientes que te vas a extender, sé más breve pero completa cada frase — nunca dejes una idea a medias.",
+  "9. IMPORTANTE: Responde DIRECTAMENTE al usuario en español. NUNCA incluyas pensamientos en inglés, borradores ('Draft'), análisis de reglas ni notas internas. Solo tu mensaje final en español.",
   "",
-    "ESTILO: cálido, cercano, en español de España, tuteando. Respuestas breves: 2-5 frases, salvo que pidan expresamente más detalle. Si preguntan por precios, remite a la sección de Tarifas de la web.",
+  "ESTILO: cálido, cercano, en español de España, tuteando. Respuestas breves: 2-5 frases, salvo que pidan expresamente más detalle. Si preguntan por precios, remite a la sección de Tarifas de la web.",
   "Datos reales del centro que sí puedes usar: contacto en la sección de la web, horario Lun-Vie 8:00-20:00, terapia presencial en Madrid.",
-  "Especialidades que ofrece Kinea (y solo estas): terapia manual, punción seca & EPTE, ejercicio terapéutico, readaptación deportiva, suelo pélvico, fisioterapia postural, dolor de cuello, dolor lumbar, dolor ATM, dolor de rodilla, dolor de cadera, dolor de hombro, dolor de tobillo y dolor de mano. Cada una tiene su página de detalle en la sección de tratamientos. Si preguntan por algo que no está en esta lista, di que no lo ofrecemos y remite al formulario de contacto.",
-  ].join("\n");
+  "Especialidades que ofrece Kinea (y solo estas): terapia manual, punción seca & EPTE, ejercicio terapéutico, readaptación deportiva, suelo pélvico, fisioterapia postural, dolor de cuello, dolor lumbar, dolor ATM, dolor de rodilla, dolor de cadera, dolor de hombro, dolor de tobillo y dolor de mano. Cada una tiene su página de detalle en la sección de tratamientos. Si preguntan por algo que no está en esta lista, di que no lo ofrecemos y remite al formulario de contacto."
+].join("\n");
 
 // Detección de crisis en el backend: responde SIEMPRE con recursos, sin llamar al modelo.
 var CRISIS_PATTERNS = [
@@ -406,12 +406,43 @@ function redactPersonalData(text) {
 
 function extractText(data) {
   try {
-    var parts = data.candidates[0].content.parts;
+    var candidate = data.candidates && data.candidates[0];
+    if (!candidate || !candidate.content) return "";
+    var parts = candidate.content.parts || [];
     var out = [];
     for (var i = 0; i < parts.length; i++) {
-      if (parts[i].text) out.push(parts[i].text);
+      var p = parts[i];
+      // Ignorar partes marcadas como pensamiento interno
+      if (p.thought) continue;
+      if (typeof p.text === "string") {
+        out.push(p.text);
+      }
     }
-    return out.join("").trim();
+    var full = out.join("").trim();
+    // Eliminar etiquetas <thought>
+    full = full.replace(/<thought>[\s\S]*?<\/thought>/gi, "").trim();
+
+    // Si el modelo devolvió notas de razonamiento en inglés (ej. "User says:", "Draft 1:", etc.)
+    // extraer la respuesta limpia en español
+    if (full.includes("User says:") || full.includes("Draft 1:") || full.includes("Draft 2:") || full.includes("*   *Draft")) {
+      var paragraphs = full.split(/\n\s*\n/);
+      var valid = [];
+      for (var j = paragraphs.length - 1; j >= 0; j--) {
+        var para = paragraphs[j].trim();
+        if (para.startsWith("*") || para.includes("User says:") || para.includes("Draft 1:") || para.includes("Draft 2:")) {
+          var lastPeriod = para.lastIndexOf("Yes.");
+          if (lastPeriod !== -1 && lastPeriod + 4 < para.length) {
+            valid.unshift(para.slice(lastPeriod + 4).trim());
+          }
+          break;
+        }
+        if (para) valid.unshift(para);
+      }
+      if (valid.length > 0) {
+        full = valid.join("\n\n").trim();
+      }
+    }
+    return full;
   } catch (e) {
     return "";
   }
