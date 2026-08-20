@@ -198,8 +198,12 @@ export default {
       }
     };
 
-    // Lista de candidatos: primero el que ya sabemos que funciona, si lo hay.
-    var candidates = workingModel ? [workingModel] : GEMINI_MODELS.slice();
+    // Lista de candidatos: primero el que ya sabemos que funciona, seguido del resto
+    var candidates = GEMINI_MODELS.slice();
+    if (workingModel && candidates.indexOf(workingModel) !== -1) {
+      candidates.splice(candidates.indexOf(workingModel), 1);
+      candidates.unshift(workingModel);
+    }
     var lastStatus = 0;
     var lastDetail = "";
 
