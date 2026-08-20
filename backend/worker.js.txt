@@ -159,23 +159,36 @@ export default {
       return json({ reply: CRISIS_REPLY, crisis: true }, 200, cors);
     }
 
-    // ---- Historial (limitado) ----
-    var history = Array.isArray(body.history) ? body.history.slice(-MAX_HISTORY_TURNS) : [];
+    // ---- Historial normalizado (Gemini exige alternancia estricta user <-> model) ----
+    var rawHistory = Array.isArray(body.history) ? body.history.slice(-MAX_HISTORY_TURNS) : [];
     var contents = [];
-    for (var i = 0; i < history.length; i++) {
-      var h = history[i];
-      if (!h || typeof h.text !== "string") continue;
-      contents.push({
-        role: h.role === "assistant" ? "model" : "user",
-        parts: [{ text: h.text.slice(0, MAX_MESSAGE_CHARS) }]
-      });
+
+    for (var i = 0; i < rawHistory.length; i++) {
+      var h = rawHistory[i];
+      if (!h || typeof h.text !== "string" || !h.text.trim()) continue;
+      var role = (h.role === "assistant" || h.role === "model") ? "model" : "user";
+
+      if (contents.length === 0) {
+        if (role === "user") {
+          contents.push({ role: "user", parts: [{ text: h.text.slice(0, MAX_MESSAGE_CHARS) }] });
+        }
+      } else {
+        var lastRole = contents[contents.length - 1].role;
+        if (lastRole === role) {
+          contents[contents.length - 1].parts[0].text += "\n" + h.text.slice(0, MAX_MESSAGE_CHARS);
+        } else {
+          contents.push({ role: role, parts: [{ text: h.text.slice(0, MAX_MESSAGE_CHARS) }] });
+        }
+      }
     }
-    contents.push({ role: "user", parts: [{ text: message }] });
+
+    if (contents.length > 0 && contents[contents.length - 1].role === "user") {
+      contents[contents.length - 1].parts[0].text += "\n" + message;
+    } else {
+      contents.push({ role: "user", parts: [{ text: message }] });
+    }
 
     // ---- Sanitizar entrada antes de mandarla al modelo ----
-    // Redacta datos personales que el usuario pueda haber pegado, para que:
-    //   a) no queden en el historial que se reenvía a Google,
-    //   b) el modelo no los pueda repetir de vuelta ni ampliar sobre ellos.
     contents.forEach(function (c) {
       if (c.parts && c.parts[0] && typeof c.parts[0].text === "string") {
         c.parts[0].text = redactPersonalData(c.parts[0].text);
@@ -188,13 +201,7 @@ export default {
       contents: contents,
       generationConfig: {
         temperature: 0.6,
-        // 900 tokens ≈ 600-700 palabras: suficiente para respuestas cerradas
-        // sin cortarse a mitad de frase.
         maxOutputTokens: 900
-        // Nota: NO añadir thinkingConfig aquí. La API de Gemini lo rechaza
-        // con 400 INVALID_ARGUMENT para esta cuenta y tumba el asistente
-        // entero. Si algún día se quiere desactivar el "pensamiento" del
-        // modelo, probar antes contra /health y un mensaje de prueba.
       }
     };
 
@@ -223,35 +230,50 @@ export default {
         );
 
         if (res.ok) {
-          workingModel = model; // lo recordamos para las siguientes peticiones
+          workingModel = model;
           var data = await res.json();
           var reply = extractText(data);
           if (!reply) {
             return json({ reply: "No he podido responder a eso. ¿Quieres contarme de otra forma en qué puedo ayudarte, o prefieres escribir directamente al equipo por el formulario?" }, 200, cors);
           }
-          // Doble red de seguridad: filtro también la salida por si el modelo
-          // se ha inventado o ha ecoado datos personales.
           reply = redactPersonalData(reply);
           return json({ reply: reply }, 200, cors);
         }
 
         lastStatus = res.status;
         lastDetail = (await res.text()).slice(0, 200);
-        console.log("Modelo " + model + " -> " + res.status + ": " + lastDetail);
 
-        // 404 = ese modelo no existe para esta key: probamos el siguiente.
+        // Si da 400 (por ejemplo conflicto con historial anterior), reintentar automáticamente solo con el mensaje actual
+        if (res.status === 400 && contents.length > 1) {
+          var singleTurnBody = Object.assign({}, geminiBody, {
+            contents: [{ role: "user", parts: [{ text: redactPersonalData(message) }] }]
+          });
+          var resFallback = await fetch(
+            "https://generativelanguage.googleapis.com/v1beta/models/" + model + ":generateContent?key=" + env.GEMINI_API_KEY,
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json", "x-goog-api-key": env.GEMINI_API_KEY },
+              body: JSON.stringify(singleTurnBody)
+            }
+          );
+          if (resFallback.ok) {
+            workingModel = model;
+            var fbData = await resFallback.json();
+            var fbReply = extractText(fbData);
+            if (fbReply) return json({ reply: redactPersonalData(fbReply) }, 200, cors);
+          }
+        }
+
         if (res.status === 404) {
-          if (workingModel === model) workingModel = null; // el cacheado dejó de valer
+          if (workingModel === model) workingModel = null;
           continue;
         }
         if (res.status === 429) {
           return json({ error: "El asistente está muy solicitado ahora mismo. Prueba en un minuto, o escríbenos por el formulario." }, 503, cors);
         }
-        // Otros errores (403 key inválida, 400 petición mal formada…) no se arreglan cambiando de modelo.
-        break;
+        continue;
       } catch (e) {
         lastDetail = e.message;
-        console.log("Fetch a Gemini falló (" + model + "): " + e.message);
       }
     }
 
